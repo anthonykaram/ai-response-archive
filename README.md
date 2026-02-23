@@ -62,7 +62,7 @@ No model inference occurs.
 
 ## Demonstration
 
-### Full Video Demo
+### Video Demo
 
 ▶️ **[Watch the extended demonstration on YouTube](https://youtu.be/wAHxsgDjccY)**
 
