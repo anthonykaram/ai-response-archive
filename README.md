@@ -1,14 +1,16 @@
 # AI Response Archive
 
-Canonical documentation for the AI Response Archive project.
+**Offline, deterministic archive of pre-generated AI responses.**
 
-AI Response Archive is an experimental offline collection of pre-generated AI responses, distributed as a self-contained ZIM file for use with Kiwix.
+Canonical project documentation.
+
+The AI Response Archive is an experimental offline collection of pre-generated AI responses, distributed as a self-contained ZIM file for use with [Kiwix](https://kiwix.org/).
 
 Instead of performing live inference, the project systematically enumerates a bounded prompt space and preserves the resulting responses as a static, offline artifact.
 
 The distributed archive is available via Gumroad:
 
-https://anthonykaram.gumroad.com/l/ai_response_archive
+👉 **https://anthonykaram.gumroad.com/l/ai_response_archive**
 
 ---
 
@@ -44,12 +46,12 @@ The distributed ZIM file contains:
 
 - A lightweight HTML + JavaScript interface  
 - A static corpus of pre-generated prompt-response pairs  
-- A lookup mechanism that maps prompts to their stored responses  
+- A deterministic local lookup mechanism  
 
 At runtime:
 
 1. The user enters a prompt (up to length `N`)
-2. The interface performs a deterministic local lookup
+2. The interface performs a local lookup
 3. The corresponding pre-generated response is displayed instantly
 
 No network requests are made.  
@@ -59,6 +61,13 @@ No model inference occurs.
 ---
 
 ## Demonstration
+
+### Full Video Demo
+
+▶️ Watch the extended demonstration on YouTube:  
+https://youtu.be/wAHxsgDjccY
+
+---
 
 ### Interface in Operation
 
@@ -135,7 +144,7 @@ The archive itself is distributed commercially via Gumroad.
 ## Distribution Format
 
 - Format: ZIM  
-- Compatible with: Kiwix (Desktop & Mobile)  
+- Compatible with: [Kiwix](https://kiwix.org/) (Desktop & Mobile)  
 - Fully functional without internet access  
 
 ---
