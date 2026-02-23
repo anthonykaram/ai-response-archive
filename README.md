@@ -10,7 +10,7 @@ Instead of performing live inference, the project systematically enumerates a bo
 
 The distributed archive is available via Gumroad:
 
-👉 **https://anthonykaram.gumroad.com/l/ai_response_archive**
+👉 **[Get the AI Response Archive on Gumroad](https://anthonykaram.gumroad.com/l/ai_response_archive)**
 
 ---
 
@@ -64,8 +64,7 @@ No model inference occurs.
 
 ### Full Video Demo
 
-▶️ Watch the extended demonstration on YouTube:  
-https://youtu.be/wAHxsgDjccY
+▶️ **[Watch the extended demonstration on YouTube](https://youtu.be/wAHxsgDjccY)**
 
 ---
 
