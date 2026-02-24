@@ -75,7 +75,7 @@ Key parameters included:
 - Max tokens: 500  
 - n_predict: 1 (single completion per prompt)  
 - Single evaluation per prompt  
-- Fixed system prompt  
+- Fixed chat template  
 
 Temperature was set to 0.0 to minimize stochastic variation.  
 Top-p remained at 1.0 (no nucleus truncation).  
@@ -87,15 +87,25 @@ Each prompt was evaluated exactly once.
 
 ---
 
-## System Prompt
+## Prompt Template
 
-The following system prompt was applied uniformly during generation:
+Each enumerated prompt was inserted into the following chat-format template:
 
 ```
-[PASTE YOUR EXACT CUSTOM SYSTEM PROMPT HERE]
+<|start_header_id|>system<|end_header_id|>
+
+You are a helpful assistant.<|eot_id|><|start_header_id|>user<|end_header_id|>
+
+[prompt]<|eot_id|><|start_header_id|>assistant<|end_header_id|>
+
 ```
 
-This prompt was designed to standardize tone and structure across generations and to reduce stylistic variance within the bounded prompt space.
+Where `[prompt]` was replaced by the enumerated ASCII string.
+
+This structure mirrors the expected conversational format of the underlying model.  
+Generation began immediately after the final `assistant` header marker.
+
+The goal was not creative variation but structural consistency across the entire bounded prompt space.
 
 ---
 
