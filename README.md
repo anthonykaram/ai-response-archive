@@ -1,6 +1,6 @@
 # AI Response Archive
 
-**Offline, deterministic archive of pre-generated AI responses.**
+**Offline, frozen archive of pre-generated AI responses.**
 
 Canonical project documentation.
 
@@ -31,12 +31,71 @@ Each prompt is evaluated once using a fixed model configuration, and the resulti
 
 The archive is therefore:
 
-- Deterministic  
 - Fully enumerated within its defined bounds  
 - Static (no runtime inference)  
 - Offline-first  
+- Frozen at the point of generation  
 
 Because the prompt space grows exponentially with respect to `N`, each increment substantially increases generation time and storage requirements.
+
+---
+
+## Determinism and Reproducibility
+
+The term "deterministic" in this project refers to runtime behavior, not model-level reproducibility.
+
+At runtime:
+
+- Each prompt deterministically maps to a single stored response.
+- No sampling or inference occurs.
+- The lookup process is fully deterministic.
+
+At generation time:
+
+- Responses were generated once using a fixed model configuration.
+- The resulting corpus was frozen and archived.
+- The archive represents a single sampling of the model under specific conditions.
+
+This means the archive is:
+
+- Deterministic as a distributed artifact  
+- Not guaranteed to be bitwise-reproducible across hardware  
+- A fixed historical snapshot of model behavior  
+
+---
+
+## Inference Configuration (Generation Phase)
+
+All responses were generated using a single, fixed inference configuration.
+
+Key parameters included:
+
+- Temperature: 0.0  
+- Top-p: 1.0  
+- Max tokens: 500  
+- n_predict: 1 (single completion per prompt)  
+- Single evaluation per prompt  
+- Fixed system prompt  
+
+Temperature was set to 0.0 to minimize stochastic variation.  
+Top-p remained at 1.0 (no nucleus truncation).  
+Max tokens was intentionally left at 500 rather than reduced, in order to avoid artificially constraining output length across prompts of varying ambiguity.
+
+`n_predict: 1` ensured that exactly one completion was generated and retained for each prompt. No ranking, filtering, retries, or multi-sample selection was performed.
+
+Each prompt was evaluated exactly once.
+
+---
+
+## System Prompt
+
+The following system prompt was applied uniformly during generation:
+
+```
+[PASTE YOUR EXACT CUSTOM SYSTEM PROMPT HERE]
+```
+
+This prompt was designed to standardize tone and structure across generations and to reduce stylistic variance within the bounded prompt space.
 
 ---
 
@@ -93,6 +152,7 @@ No model inference occurs.
 - **Static distribution** — No dynamic generation  
 - **Self-contained artifact** — Packaged as a single ZIM file  
 - **Combinatorial transparency** — Growth characteristics are explicit and mathematical  
+- **Snapshot preservation** — Archive represents a frozen model state  
 
 ---
 
