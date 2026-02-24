@@ -64,6 +64,32 @@ This means the archive is:
 
 ---
 
+## Model Artifact
+
+Responses were generated using:
+
+- Model: Meta Llama 3 8B Instruct  
+- GGUF file: [Meta-Llama-3-8B-Instruct.Q4_0.gguf](https://gpt4all.io/models/gguf/Meta-Llama-3-8B-Instruct.Q4_0.gguf)  
+- Quantization: Q4_0  
+
+The archive therefore reflects the behavioral characteristics of this specific quantized model artifact.
+
+---
+
+## Inference Engine
+
+Generation was performed using:
+
+- Repository: https://github.com/ggml-org/llama.cpp  
+- Build method: CMake Release build  
+- Flags: `-DGGML_CUDA=ON`  
+- Approximate build timeframe: February 2026  
+
+The exact commit hash of llama.cpp was not recorded at generation time.  
+The archive therefore represents a frozen behavioral snapshot of the model evaluated using a llama.cpp build from the ggml-org repository as of February 2026.
+
+---
+
 ## Inference Configuration (Generation Phase)
 
 All responses were generated using a single, fixed inference configuration.
@@ -102,10 +128,7 @@ You are a helpful assistant.<|eot_id|><|start_header_id|>user<|end_header_id|>
 
 Where `[prompt]` was replaced by the enumerated ASCII string.
 
-This structure mirrors the expected conversational format of the underlying model.  
 Generation began immediately after the final `assistant` header marker.
-
-The goal was not creative variation but structural consistency across the entire bounded prompt space.
 
 ---
 
